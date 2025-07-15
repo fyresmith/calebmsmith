@@ -17,6 +17,7 @@
         setupKeyboardNavigation();
         setupPerformanceOptimizations();
         setupAccessibility();
+        setupModalSystem();
     
         
         // Add loaded class for any additional styling
@@ -234,6 +235,175 @@
         window.addEventListener('online', updateOnlineStatus);
         window.addEventListener('offline', updateOnlineStatus);
         updateOnlineStatus();
+    }
+    
+    // Modal System - iOS-style animations
+    function setupModalSystem() {
+        const modalTriggers = document.querySelectorAll('.menu-item[data-modal]');
+        const modalSystem = document.querySelector('.modal-system');
+        const modalOverlay = document.getElementById('modal-overlay');
+        let activeModal = null;
+        let isAnimating = false;
+        
+        // Add click listeners to modal triggers
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (isAnimating) return;
+                
+                const modalId = this.getAttribute('data-modal');
+                const modal = document.getElementById(`modal-${modalId}`);
+                
+                if (modal) {
+                    openModal(modal, this);
+                }
+            });
+        });
+        
+        // Add click listeners to close buttons
+        const closeButtons = document.querySelectorAll('.modal-close');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (isAnimating) return;
+                
+                const modal = this.closest('.modal');
+                if (modal) {
+                    closeModal(modal);
+                }
+            });
+        });
+        
+        // Close modal when clicking overlay
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay && activeModal) {
+                closeModal(activeModal);
+            }
+        });
+        
+        // Close modal with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && activeModal && !isAnimating) {
+                closeModal(activeModal);
+            }
+        });
+        
+        function openModal(modal, trigger) {
+            if (isAnimating) return;
+            isAnimating = true;
+            activeModal = modal;
+            
+            // Add opening class to trigger for content fade
+            trigger.classList.add('modal-opening');
+            
+            // Show modal system and start animations
+            modalSystem.classList.add('active');
+            modalOverlay.classList.add('active');
+            
+            // Show modal with fade-in animation
+            requestAnimationFrame(() => {
+                modal.classList.add('active');
+                
+                // Clean up after animation completes
+                setTimeout(() => {
+                    isAnimating = false;
+                    trigger.classList.remove('modal-opening');
+                }, 400);
+            });
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Focus management
+            setTimeout(() => {
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    closeButton.focus();
+                }
+            }, 450);
+            
+            // Track modal open event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'modal_open', {
+                    'event_category': 'engagement',
+                    'event_label': modal.id,
+                    'value': 1
+                });
+            }
+        }
+        
+        function closeModal(modal) {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            // Remove active class to start closing animation
+            modal.classList.remove('active');
+            
+            // Start overlay fade out
+            modalOverlay.classList.remove('active');
+            
+            // Clean up after animation completes
+            setTimeout(() => {
+                // Hide modal system
+                modalSystem.classList.remove('active');
+                
+                // Re-enable body scroll
+                document.body.style.overflow = '';
+                
+                // Clear active modal
+                activeModal = null;
+                isAnimating = false;
+            }, 400);
+            
+            // Track modal close event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'modal_close', {
+                    'event_category': 'engagement',
+                    'event_label': modal.id,
+                    'value': 1
+                });
+            }
+        }
+        
+        // Handle window resize during modal open
+        window.addEventListener('resize', function() {
+            if (activeModal && activeModal.classList.contains('active')) {
+                // Modal is already fullscreen via CSS, no inline styles needed
+            }
+        });
+        
+        // Improved accessibility - trap focus within modal
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            
+            if (focusableElements.length === 0) return;
+            
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+            
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            e.preventDefault();
+                            lastElement.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            e.preventDefault();
+                            firstElement.focus();
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Set up focus trapping for all modals
+        document.querySelectorAll('.modal').forEach(modal => {
+            trapFocus(modal);
+        });
     }
     
     // Initialize additional features
