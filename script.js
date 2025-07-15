@@ -31,6 +31,25 @@
                 body.classList.remove('light-mode');
                 html.setAttribute('data-theme', 'dark');
             }
+            
+            // Update profile picture based on theme (when DOM is ready)
+            const updateAvatar = () => {
+                const avatar = document.querySelector('.avatar');
+                if (avatar) {
+                    if (theme === 'light') {
+                        avatar.src = 'pfp2.webp';
+                    } else {
+                        avatar.src = 'pfp2-dark.jpg';
+                    }
+                }
+            };
+            
+            // Try to update immediately if DOM is ready, otherwise wait for DOMContentLoaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', updateAvatar);
+            } else {
+                updateAvatar();
+            }
         }
         
         // Apply initial theme immediately
@@ -1096,6 +1115,16 @@
             } else {
                 body.classList.remove('light-mode');
                 html.setAttribute('data-theme', 'dark');
+            }
+            
+            // Update profile picture based on theme
+            const avatar = document.querySelector('.avatar');
+            if (avatar) {
+                if (theme === 'light') {
+                    avatar.src = 'pfp2.webp';
+                } else {
+                    avatar.src = 'pfp2-dark.jpg';
+                }
             }
             
             // Update aria-label for accessibility
