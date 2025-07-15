@@ -4,6 +4,16 @@
 (function() {
     'use strict';
     
+    // Force scroll to top immediately, before anything else
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    
+    // Disable browser scroll restoration
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    
     // Performance optimization: Run after DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -11,17 +21,43 @@
         init();
     }
     
-    function init() {
+        function init() {
+        // Force scroll to top on page load/refresh
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        
         // Initialize features
         setupLinkTracking();
         setupKeyboardNavigation();
         setupPerformanceOptimizations();
         setupAccessibility();
         setupModalSystem();
-    
+        setupScrollToTop();
+        setupURLRouting();
+
         
         // Add loaded class for any additional styling
         document.body.classList.add('js-loaded');
+    }
+    
+    // Ensure page always starts at top
+    function setupScrollToTop() {
+        // Force scroll to top on page show (handles back/forward navigation)
+        window.addEventListener('pageshow', function() {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        });
+        
+        // Additional safety for load event
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+            }, 0);
+        });
     }
     
 
@@ -257,7 +293,7 @@
                 if (modal) {
                     openModal(modal, this);
                 }
-            });
+            }, { passive: false });
         });
         
         // Add click listeners to close buttons
@@ -271,7 +307,7 @@
                 if (modal) {
                     closeModal(modal);
                 }
-            });
+            }, { passive: false });
         });
         
         // Close modal when clicking overlay
@@ -279,7 +315,7 @@
             if (e.target === modalOverlay && activeModal) {
                 closeModal(activeModal);
             }
-        });
+        }, { passive: false });
         
         // Close modal with escape key
         document.addEventListener('keydown', function(e) {
@@ -296,20 +332,16 @@
             // Add opening class to trigger for content fade
             trigger.classList.add('modal-opening');
             
-            // Show modal system and start animations
+            // Show modal system and start animations immediately
             modalSystem.classList.add('active');
             modalOverlay.classList.add('active');
+            modal.classList.add('active');
             
-            // Show modal with fade-in animation
-            requestAnimationFrame(() => {
-                modal.classList.add('active');
-                
-                // Clean up after animation completes
-                setTimeout(() => {
-                    isAnimating = false;
-                    trigger.classList.remove('modal-opening');
-                }, 400);
-            });
+            // Clean up after animation completes
+            setTimeout(() => {
+                isAnimating = false;
+                trigger.classList.remove('modal-opening');
+            }, 150);
             
             // Prevent body scroll
             document.body.style.overflow = 'hidden';
@@ -320,7 +352,7 @@
                 if (closeButton) {
                     closeButton.focus();
                 }
-            }, 450);
+            }, 50);
             
             // Track modal open event
             if (typeof gtag !== 'undefined') {
@@ -353,7 +385,7 @@
                 // Clear active modal
                 activeModal = null;
                 isAnimating = false;
-            }, 400);
+            }, 200);
             
             // Track modal close event
             if (typeof gtag !== 'undefined') {
