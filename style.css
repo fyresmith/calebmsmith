@@ -390,6 +390,7 @@ body {
     font-size: 1rem;
     color: #b5b5b5;
     font-weight: 400;
+    white-space: nowrap;
 }
 
 /* Social Icons Section */
@@ -1129,7 +1130,7 @@ body.light-mode .contact-note p {
     }
     
     .profile-bio {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     
     .social-icons {
@@ -1226,6 +1227,10 @@ body.light-mode .contact-note p {
     
     .profile-name {
         font-size: 1.375rem;
+    }
+    
+    .profile-bio {
+        font-size: 0.85rem;
     }
     
     .social-icons {

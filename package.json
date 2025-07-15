@@ -1,7 +1,7 @@
 {
   "name": "calebmsmith-linktree",
   "version": "1.0.0",
-  "description": "Personal linktree for Caleb Smith - Thinker, Maker, Messenger",
+  "description": "Personal linktree for Caleb Smith - Faith-first writer, thinker, and builder",
   "main": "index.html",
   "scripts": {
     "dev": "npx live-server --port=3000 --entry-file=index.html",
