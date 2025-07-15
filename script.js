@@ -35,10 +35,242 @@
         setupModalSystem();
         setupScrollToTop();
         setupThemeToggle();
+        setupURLRouting(); // Add URL routing setup
 
         
         // Add loaded class for any additional styling
         document.body.classList.add('js-loaded');
+    }
+    
+    // URL Routing System
+    function setupURLRouting() {
+        const validRoutes = ['about', 'mission', 'contact'];
+        
+        // Handle initial page load routing
+        function handleInitialRoute() {
+            const path = window.location.pathname;
+            const hash = window.location.hash.substring(1); // Remove leading #
+            const route = path.substring(1); // Remove leading slash
+            
+            // Handle /connect redirect
+            if (route === 'connect') {
+                // Redirect to root
+                window.history.replaceState(null, '', '/');
+                return;
+            }
+            
+            // Check for hash-based routes first (for redirected routes)
+            if (hash && validRoutes.includes(hash)) {
+                setTimeout(() => {
+                    const modal = document.getElementById(`modal-${hash}`);
+                    if (modal) {
+                        openModalFromURL(modal, hash);
+                        // Update URL to clean path-based route
+                        window.history.replaceState({ modal: hash }, '', `/${hash}`);
+                    }
+                }, 100);
+                return;
+            }
+            
+            // Handle modal routes from direct path access
+            if (validRoutes.includes(route)) {
+                // Wait for modal system to be ready, then open the modal
+                setTimeout(() => {
+                    const modal = document.getElementById(`modal-${route}`);
+                    if (modal) {
+                        openModalFromURL(modal, route);
+                    }
+                }, 100);
+            }
+        }
+        
+        // Handle browser back/forward navigation
+        window.addEventListener('popstate', function(e) {
+            const path = window.location.pathname;
+            const hash = window.location.hash.substring(1);
+            const route = path.substring(1);
+            
+            // Close any open modal if we're going back to root
+            if ((route === '' || route === '/') && !hash) {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModalFromURL(activeModal);
+                }
+                return;
+            }
+            
+            // Handle /connect redirect on back/forward
+            if (route === 'connect') {
+                window.history.replaceState(null, '', '/');
+                return;
+            }
+            
+            // Handle hash-based routes
+            if (hash && validRoutes.includes(hash)) {
+                const modal = document.getElementById(`modal-${hash}`);
+                if (modal) {
+                    const activeModal = document.querySelector('.modal.active');
+                    if (activeModal && activeModal !== modal) {
+                        closeModalFromURL(activeModal);
+                        setTimeout(() => {
+                            openModalFromURL(modal, hash);
+                        }, 200);
+                    } else if (!activeModal) {
+                        openModalFromURL(modal, hash);
+                    }
+                }
+                return;
+            }
+            
+            // Open appropriate modal for valid routes
+            if (validRoutes.includes(route)) {
+                const modal = document.getElementById(`modal-${route}`);
+                if (modal) {
+                    // Close any currently open modal first
+                    const activeModal = document.querySelector('.modal.active');
+                    if (activeModal && activeModal !== modal) {
+                        closeModalFromURL(activeModal);
+                        setTimeout(() => {
+                            openModalFromURL(modal, route);
+                        }, 200);
+                    } else if (!activeModal) {
+                        openModalFromURL(modal, route);
+                    }
+                }
+            }
+        });
+        
+        // Handle hash changes (for direct hash navigation)
+        window.addEventListener('hashchange', function(e) {
+            const hash = window.location.hash.substring(1);
+            
+            if (hash && validRoutes.includes(hash)) {
+                const modal = document.getElementById(`modal-${hash}`);
+                if (modal) {
+                    const activeModal = document.querySelector('.modal.active');
+                    if (activeModal && activeModal !== modal) {
+                        closeModalFromURL(activeModal);
+                        setTimeout(() => {
+                            openModalFromURL(modal, hash);
+                            // Update to clean URL
+                            window.history.replaceState({ modal: hash }, '', `/${hash}`);
+                        }, 200);
+                    } else if (!activeModal) {
+                        openModalFromURL(modal, hash);
+                        // Update to clean URL
+                        window.history.replaceState({ modal: hash }, '', `/${hash}`);
+                    }
+                }
+            } else if (!hash) {
+                // Hash was removed, close any open modal
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModalFromURL(activeModal);
+                }
+            }
+        });
+        
+        // Special modal functions for URL routing (avoid circular history updates)
+        function openModalFromURL(modal, route) {
+            const modalSystem = document.querySelector('.modal-system');
+            const modalOverlay = document.getElementById('modal-overlay');
+            
+            // Show modal system and start animations
+            modalSystem.classList.add('active');
+            modalOverlay.classList.add('active');
+            modal.classList.add('active');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Focus management
+            setTimeout(() => {
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    closeButton.focus();
+                }
+            }, 50);
+            
+            // Track modal open event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'modal_open_url', {
+                    'event_category': 'engagement',
+                    'event_label': route,
+                    'value': 1
+                });
+            }
+        }
+        
+        function closeModalFromURL(modal) {
+            const modalSystem = document.querySelector('.modal-system');
+            const modalOverlay = document.getElementById('modal-overlay');
+            
+            // Remove active class to start closing animation
+            modal.classList.remove('active');
+            modalOverlay.classList.remove('active');
+            
+            // Clean up after animation completes
+            setTimeout(() => {
+                modalSystem.classList.remove('active');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+        
+        // Modify the existing modal system to update URLs
+        function updateModalSystemForRouting() {
+            const modalTriggers = document.querySelectorAll('.menu-item[data-modal]');
+            const closeButtons = document.querySelectorAll('.modal-close');
+            const modalOverlay = document.getElementById('modal-overlay');
+            
+            // Update modal triggers to push URL state
+            modalTriggers.forEach(trigger => {
+                const originalHandler = trigger.onclick;
+                trigger.addEventListener('click', function(e) {
+                    const modalId = this.getAttribute('data-modal');
+                    if (modalId && validRoutes.includes(modalId)) {
+                        // Update URL without triggering popstate
+                        const newURL = `/${modalId}`;
+                        window.history.pushState({ modal: modalId }, '', newURL);
+                    }
+                });
+            });
+            
+            // Update close buttons to update URL
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Update URL back to root
+                    window.history.pushState(null, '', '/');
+                });
+            });
+            
+            // Update overlay click to update URL
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    window.history.pushState(null, '', '/');
+                }
+            });
+            
+            // Update escape key handler to update URL
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const activeModal = document.querySelector('.modal.active');
+                    if (activeModal) {
+                        window.history.pushState(null, '', '/');
+                    }
+                }
+            });
+        }
+        
+        // Initialize routing
+        handleInitialRoute();
+        updateModalSystemForRouting();
+        
+        // Expose functions for potential external use
+        window.routingFunctions = {
+            openModalFromURL,
+            closeModalFromURL,
+            validRoutes
+        };
     }
     
     // Ensure page always starts at top
