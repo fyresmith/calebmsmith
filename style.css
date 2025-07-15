@@ -300,6 +300,14 @@ body {
         color: #1a1a1a;
         text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
     }
+    
+    .quote-text {
+        color: #7d7d7d;
+    }
+    
+    .quote-author {
+        color: #5d5e5f;
+    }
 }
 
 /* Background Pattern - Removed for solid color */
@@ -380,7 +388,7 @@ body {
 
 .profile-bio {
     font-size: 1rem;
-    color: #94a3b8;
+    color: #b5b5b5;
     font-weight: 400;
 }
 
@@ -701,6 +709,33 @@ body {
     display: none;
 }
 
+/* Quote Section */
+.quote-section {
+    text-align: center;
+    margin: 2rem 0;
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+.quote-text {
+    font-size: 0.9rem;
+    color: #b7b7b7;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quote-author {
+    font-size: 0.8rem;
+    color: #7b7c7c;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    margin: 0;
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -876,6 +911,14 @@ body.light-mode .menu-item:hover .menu-description {
 
 body.light-mode .footer p {
     color: #3a3a3a;
+}
+
+body.light-mode .quote-text {
+    color: #7f7f7f;
+}
+
+body.light-mode .quote-author {
+    color: #5e5e5e;
 }
 
 body.light-mode .theme-toggle {
@@ -1152,6 +1195,15 @@ body.light-mode .contact-note p {
         width: 20px;
         height: 20px;
     }
+    
+    .quote-text {
+        font-size: 0.85rem;
+        max-width: 300px;
+    }
+    
+    .quote-author {
+        font-size: 0.75rem;
+    }
 
 }
 
@@ -1223,6 +1275,15 @@ body.light-mode .contact-note p {
     .theme-icon {
         width: 18px;
         height: 18px;
+    }
+    
+    .quote-text {
+        font-size: 0.8rem;
+        max-width: 280px;
+    }
+    
+    .quote-author {
+        font-size: 0.7rem;
     }
 
 }
@@ -1464,10 +1525,10 @@ body.light-mode .contact-note p {
 }
 
 .modal-content {
-    padding: 6rem 2rem 2rem;
+    padding: 6rem 2rem 4rem;
     /* Add safe area padding to prevent content from being cut off */
     padding-top: calc(6rem + env(safe-area-inset-top, 0px));
-    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
     padding-left: calc(2rem + env(safe-area-inset-left, 0px));
     padding-right: calc(2rem + env(safe-area-inset-right, 0px));
     min-height: 100%;
@@ -1763,10 +1824,10 @@ body.light-mode .contact-note p {
 /* Responsive Design for Modals */
 @media (max-width: 640px) {
     .modal-content {
-        padding: 5rem 1.5rem 3rem;
+        padding: 5rem 1.5rem 4rem;
         /* Add safe area padding for mobile */
         padding-top: calc(5rem + env(safe-area-inset-top, 0px));
-        padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
         padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
         padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
     }
@@ -1807,10 +1868,10 @@ body.light-mode .contact-note p {
 
 @media (max-width: 480px) {
     .modal-content {
-        padding: 4rem 1rem 3rem;
+        padding: 4rem 1rem 4rem;
         /* Add safe area padding for small mobile */
         padding-top: calc(4rem + env(safe-area-inset-top, 0px));
-        padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
         padding-left: calc(1rem + env(safe-area-inset-left, 0px));
         padding-right: calc(1rem + env(safe-area-inset-right, 0px));
     }
