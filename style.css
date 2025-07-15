@@ -1291,8 +1291,9 @@ body.light-mode .contact-note p {
 
 .modal-close {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    /* Position relative to safe area */
+    top: calc(1.5rem + env(safe-area-inset-top, 0px));
+    right: calc(1.5rem + env(safe-area-inset-right, 0px));
     width: 40px;
     height: 40px;
     background: rgba(35, 35, 35, 0.9);
@@ -1307,7 +1308,7 @@ body.light-mode .contact-note p {
     transition: all 0.3s ease;
     opacity: 0;
     transform: scale(0.5) translateY(-20px);
-    z-index: 10;
+    z-index: 1001; /* Above modal content */
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -1532,6 +1533,11 @@ body.light-mode .contact-note p {
 @media (max-width: 640px) {
     .modal-content {
         padding: 5rem 1.5rem 2rem;
+        /* Add safe area padding for mobile */
+        padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+        padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+        padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
+        padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
     }
     
     .modal-header h2 {
@@ -1539,8 +1545,9 @@ body.light-mode .contact-note p {
     }
     
     .modal-close {
-        top: 1rem;
-        right: 1rem;
+        /* Position relative to safe area on mobile */
+        top: calc(1rem + env(safe-area-inset-top, 0px));
+        right: calc(1rem + env(safe-area-inset-right, 0px));
         width: 36px;
         height: 36px;
     }
@@ -1570,6 +1577,11 @@ body.light-mode .contact-note p {
 @media (max-width: 480px) {
     .modal-content {
         padding: 4rem 1rem 2rem;
+        /* Add safe area padding for small mobile */
+        padding-top: calc(4rem + env(safe-area-inset-top, 0px));
+        padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+        padding-left: calc(1rem + env(safe-area-inset-left, 0px));
+        padding-right: calc(1rem + env(safe-area-inset-right, 0px));
     }
     
     .modal-header h2 {
@@ -1599,6 +1611,11 @@ body.light-mode .contact-note p {
 @media (min-width: 768px) {
     .modal-content {
         padding: 8rem 3rem 3rem;
+        /* Add safe area padding for desktop */
+        padding-top: calc(8rem + env(safe-area-inset-top, 0px));
+        padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+        padding-left: calc(3rem + env(safe-area-inset-left, 0px));
+        padding-right: calc(3rem + env(safe-area-inset-right, 0px));
     }
     
     .modal-header h2 {
