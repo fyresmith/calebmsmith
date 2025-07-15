@@ -492,6 +492,7 @@
             }, 150);
         });
         
+
         // Listen for system theme changes (only if user hasn't set a preference)
         window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
             if (!localStorage.getItem('theme')) {
