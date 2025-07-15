@@ -758,9 +758,9 @@ body {
 
 /* Theme Toggle - Bottom Right of Page */
 .theme-toggle {
-    position: fixed;
-    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-    right: calc(1.5rem + env(safe-area-inset-right, 0px));
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
     width: 50px;
     height: 50px;
     border: none;
@@ -1188,8 +1188,8 @@ body.light-mode .contact-note p {
     .theme-toggle {
         width: 44px;
         height: 44px;
-        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-        right: calc(1rem + env(safe-area-inset-right, 0px));
+        bottom: 1rem;
+        right: 1rem;
     }
     
     .theme-icon {
@@ -1273,8 +1273,8 @@ body.light-mode .contact-note p {
     .theme-toggle {
         width: 40px;
         height: 40px;
-        bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
-        right: calc(0.75rem + env(safe-area-inset-right, 0px));
+        bottom: 0.75rem;
+        right: 0.75rem;
     }
     
     .theme-icon {
