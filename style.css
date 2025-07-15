@@ -27,12 +27,14 @@ body {
     overflow-x: hidden;
     position: relative;
     background: #1a1a1a;
-    /* Ensure safe area insets are properly handled */
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-    padding-left: env(safe-area-inset-left, 0px);
-    padding-right: env(safe-area-inset-right, 0px);
 }
+
+/* 
+ * Safe Area Insets - Viewport Requirements
+ * Make sure your HTML includes:
+ * <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+ * The viewport-fit=cover is crucial for safe area insets to work properly
+ */
 
 /* IMMEDIATE THEME APPLICATION - Prevents flash on mobile */
 /* Apply light theme immediately if system prefers light mode */
