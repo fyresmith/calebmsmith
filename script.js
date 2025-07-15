@@ -34,7 +34,7 @@
         setupAccessibility();
         setupModalSystem();
         setupScrollToTop();
-        setupURLRouting();
+        setupThemeToggle();
 
         
         // Add loaded class for any additional styling
@@ -438,6 +438,76 @@
         });
     }
     
+    // Theme Toggle System - Clean & Performant
+    function setupThemeToggle() {
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (!themeToggle) return;
+        
+        const html = document.documentElement;
+        const body = document.body;
+        
+        // Get theme preference - check localStorage first, then system preference
+        function getInitialTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) return savedTheme;
+            
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        
+        // Apply theme immediately to prevent flash
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                body.classList.add('light-mode');
+                html.setAttribute('data-theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                html.setAttribute('data-theme', 'dark');
+            }
+            
+            // Update aria-label for accessibility
+            themeToggle.setAttribute('aria-label', 
+                theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
+            );
+        }
+        
+        // Initialize with saved or system preference
+        const initialTheme = getInitialTheme();
+        applyTheme(initialTheme);
+        
+        // Handle toggle click
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            // Apply new theme
+            applyTheme(newTheme);
+            
+            // Save preference
+            localStorage.setItem('theme', newTheme);
+            
+            // Provide user feedback with simple scale animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+        
+        // Listen for system theme changes (only if user hasn't set a preference)
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'light' : 'dark');
+            }
+        });
+        
+        // Keyboard shortcut: Ctrl/Cmd + Shift + L for Light/Dark toggle
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'L' || e.key === 'l')) {
+                e.preventDefault();
+                themeToggle.click();
+            }
+        });
+    }
+
     // Initialize additional features
     setupSmoothScroll();
     setupOfflineDetection();

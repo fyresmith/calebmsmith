@@ -428,10 +428,290 @@ body {
     animation: fadeInUp 0.6s ease-out 0.4s both;
 }
 
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .footer p {
     color: #9ca3af;
     font-size: 0.875rem;
     font-weight: 400;
+    margin: 0;
+}
+
+/* Theme Toggle - Clean & Performant */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(35, 35, 35, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    color: #f8fafc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.theme-toggle:hover {
+    background: rgba(45, 45, 45, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid rgba(156, 163, 175, 0.8);
+    outline-offset: 2px;
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Theme Icons */
+.theme-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+/* Dark mode (default) - show moon, hide sun */
+.moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.sun-icon {
+    opacity: 0;
+    transform: rotate(180deg) scale(0.3);
+    pointer-events: none;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+body.light-mode .avatar,
+body.light-mode .avatar-fallback {
+    border: 3px solid #1e293b;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .profile-name {
+    color: #1e293b;
+}
+
+body.light-mode .profile-bio {
+    color: #374151;
+}
+
+body.light-mode .social-icon {
+    color: #374151;
+}
+
+body.light-mode .social-icon:hover {
+    color: #1e293b;
+}
+
+body.light-mode .link-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    color: #1e293b;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .link-item:hover {
+    background: rgba(248, 250, 252, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .link-icon {
+    color: #4b5563;
+}
+
+body.light-mode .link-item:hover .link-icon {
+    color: #1e293b;
+}
+
+body.light-mode .link-description {
+    color: #4b5563;
+}
+
+body.light-mode .link-item:hover .link-description {
+    color: #374151;
+}
+
+body.light-mode .link-arrow {
+    color: #1e293b;
+}
+
+body.light-mode .menu-separator {
+    background: rgba(107, 114, 128, 0.3);
+}
+
+body.light-mode .menu-item {
+    background: rgba(248, 250, 252, 0.7);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    color: #1e293b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .menu-item:hover {
+    background: rgba(241, 245, 249, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .menu-icon {
+    color: #4b5563;
+}
+
+body.light-mode .menu-item:hover .menu-icon {
+    color: #1e293b;
+}
+
+body.light-mode .menu-description {
+    color: #4b5563;
+}
+
+body.light-mode .menu-item:hover .menu-description {
+    color: #374151;
+}
+
+body.light-mode .footer p {
+    color: #4b5563;
+}
+
+body.light-mode .theme-toggle {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    color: #1e293b;
+}
+
+body.light-mode .theme-toggle:hover {
+    background: rgba(248, 250, 252, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .theme-toggle:focus-visible {
+    outline: 2px solid rgba(55, 65, 81, 0.8);
+    outline-offset: 2px;
+}
+
+/* Light mode - show sun, hide moon */
+body.light-mode .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    pointer-events: auto;
+}
+
+body.light-mode .moon-icon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.3);
+    pointer-events: none;
+}
+
+/* Modal Light Mode Styles */
+body.light-mode .modal-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+body.light-mode .modal-close {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    color: #1e293b;
+}
+
+body.light-mode .modal-close:hover {
+    background: rgba(248, 250, 252, 0.95);
+}
+
+body.light-mode .modal-header h2 {
+    color: #f8fafc;
+}
+
+body.light-mode .modal-body p {
+    color: #e2e8f0;
+}
+
+body.light-mode .highlight-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+body.light-mode .highlight-item:hover {
+    background: rgba(248, 250, 252, 0.9);
+}
+
+body.light-mode .highlight-text {
+    color: #1e293b;
+}
+
+body.light-mode .value-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+body.light-mode .value-item:hover {
+    background: rgba(248, 250, 252, 0.9);
+}
+
+body.light-mode .value-item h3 {
+    color: #1e293b;
+}
+
+body.light-mode .value-item p {
+    color: #374151;
+}
+
+body.light-mode .contact-method {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    color: #1e293b;
+}
+
+body.light-mode .contact-method:hover {
+    background: rgba(248, 250, 252, 0.9);
+    color: #1e293b;
+}
+
+body.light-mode .contact-icon {
+    background: rgba(75, 85, 99, 0.1);
+}
+
+body.light-mode .contact-icon svg {
+    color: #4b5563;
+}
+
+body.light-mode .contact-title {
+    color: #1e293b;
+}
+
+body.light-mode .contact-subtitle {
+    color: #4b5563;
+}
+
+body.light-mode .contact-note {
+    background: rgba(55, 65, 81, 0.1);
+    border-left: 4px solid #374151;
+}
+
+body.light-mode .contact-note p {
+    color: #374151;
 }
 
 /* Animations */
@@ -520,6 +800,20 @@ body {
         gap: 0.875rem;
     }
     
+    .footer-content {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .theme-icon {
+        width: 18px;
+        height: 18px;
+    }
 
 }
 
@@ -576,10 +870,22 @@ body {
         padding: 1rem;
     }
     
+    .footer-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .theme-icon {
+        width: 16px;
+        height: 16px;
+    }
 
 }
-
-/* Dark mode support - removed since we're always dark now */
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
@@ -987,7 +1293,7 @@ body {
     padding: 1.5rem;
     background: rgba(30, 41, 59, 0.5);
     border-radius: 12px;
-    border-left: 4px solid #3b82f6;
+    border-left: 4px solid #374151;
 }
 
 .contact-note p {
