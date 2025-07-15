@@ -7,8 +7,8 @@
     "dev": "npx live-server --port=3000 --entry-file=index.html",
     "build": "echo 'Static site - no build step required'",
     "predeploy": "echo 'Preparing for deployment...'",
-    "deploy": "gh-pages -d . --exclude 'node_modules/**' --exclude 'package*.json' --exclude '.git/**' --exclude 'README.md'",
-    "deploy:clean": "gh-pages -d . --exclude 'node_modules/**' --exclude 'package*.json' --exclude '.git/**' --exclude 'README.md' --remove '*.html' --remove '*.css' --remove '*.js' --remove '*.jpg' --remove '*.png' --remove '*.webp'",
+    "deploy": "./node_modules/.bin/gh-pages -d .",
+    "deploy:clean": "./node_modules/.bin/gh-pages -d . --no-history",
     "start": "npm run dev",
     "test": "echo 'No tests specified'",
     "lint": "echo 'Linting HTML, CSS, and JS files...' && npx htmlhint *.html && npx stylelint *.css",
@@ -28,12 +28,12 @@
   "author": "Caleb Smith",
   "license": "MIT",
   "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "live-server": "^1.2.2",
+    "gh-pages": "^6.3.0",
+    "html-validate": "^8.7.4",
     "htmlhint": "^1.1.4",
+    "live-server": "^1.2.2",
     "stylelint": "^16.1.0",
-    "stylelint-config-standard": "^36.0.0",
-    "html-validate": "^8.7.4"
+    "stylelint-config-standard": "^36.0.0"
   },
   "homepage": "https://calebmsmith.github.io/linktree/",
   "browserslist": [
@@ -45,4 +45,4 @@
     "node": ">=14.0.0",
     "npm": ">=6.0.0"
   }
-} 
+}

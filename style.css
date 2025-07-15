@@ -26,6 +26,224 @@ body {
     background: #1a1a1a;
 }
 
+/* IMMEDIATE THEME APPLICATION - Prevents flash on mobile */
+/* Apply light theme immediately if system prefers light mode */
+@media (prefers-color-scheme: light) {
+    body {
+        background: #f8fafc;
+        color: #1e293b;
+    }
+    
+    .avatar,
+    .avatar-fallback {
+        border: 3px solid #1e293b;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-name {
+        color: #1e293b;
+    }
+    
+    .profile-bio {
+        color: #374151;
+    }
+    
+    .social-icon {
+        color: #374151;
+    }
+    
+    .social-icon:hover {
+        color: #1e293b;
+    }
+    
+    .link-item {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(107, 114, 128, 0.3);
+        color: #1e293b;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .link-item:hover {
+        background: rgba(248, 250, 252, 0.95);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .link-icon {
+        color: #4b5563;
+    }
+    
+    .link-item:hover .link-icon {
+        color: #1e293b;
+    }
+    
+    .link-description {
+        color: #4b5563;
+    }
+    
+    .link-item:hover .link-description {
+        color: #374151;
+    }
+    
+    .link-arrow {
+        color: #1e293b;
+    }
+    
+    .menu-separator {
+        background: rgba(107, 114, 128, 0.3);
+    }
+    
+    .menu-item {
+        background: rgba(248, 250, 252, 0.7);
+        border: 1px solid rgba(107, 114, 128, 0.2);
+        color: #1e293b;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-item:hover {
+        background: rgba(241, 245, 249, 0.8);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .menu-icon {
+        color: #4b5563;
+    }
+    
+    .menu-item:hover .menu-icon {
+        color: #1e293b;
+    }
+    
+    .menu-description {
+        color: #4b5563;
+    }
+    
+    .menu-item:hover .menu-description {
+        color: #374151;
+    }
+    
+    .footer p {
+        color: #4b5563;
+    }
+    
+    .theme-toggle {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(107, 114, 128, 0.4);
+        color: #1e293b;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .theme-toggle:hover {
+        background: rgba(248, 250, 252, 0.95);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .theme-toggle:focus-visible {
+        outline: 2px solid rgba(55, 65, 81, 0.8);
+        outline-offset: 2px;
+    }
+    
+    /* Light mode - show sun, hide moon */
+    .sun-icon {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        pointer-events: auto;
+    }
+    
+    .moon-icon {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.3);
+        pointer-events: none;
+    }
+    
+    /* Modal light mode styles */
+    .modal-overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .modal-close {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(107, 114, 128, 0.3);
+        color: #1e293b;
+    }
+    
+    .modal-close:hover {
+        background: rgba(248, 250, 252, 0.95);
+    }
+    
+    .modal-header h2 {
+        color: #f8fafc;
+    }
+    
+    .modal-body p {
+        color: #e2e8f0;
+    }
+    
+    .highlight-item {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(107, 114, 128, 0.2);
+    }
+    
+    .highlight-item:hover {
+        background: rgba(248, 250, 252, 0.9);
+    }
+    
+    .highlight-text {
+        color: #1e293b;
+    }
+    
+    .value-item {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(107, 114, 128, 0.2);
+    }
+    
+    .value-item:hover {
+        background: rgba(248, 250, 252, 0.9);
+    }
+    
+    .value-item h3 {
+        color: #1e293b;
+    }
+    
+    .value-item p {
+        color: #374151;
+    }
+    
+    .contact-method {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(107, 114, 128, 0.2);
+        color: #1e293b;
+    }
+    
+    .contact-method:hover {
+        background: rgba(248, 250, 252, 0.9);
+        color: #1e293b;
+    }
+    
+    .contact-icon {
+        background: rgba(75, 85, 99, 0.1);
+    }
+    
+    .contact-icon svg {
+        color: #4b5563;
+    }
+    
+    .contact-title {
+        color: #1e293b;
+    }
+    
+    .contact-subtitle {
+        color: #4b5563;
+    }
+    
+    .contact-note {
+        background: rgba(55, 65, 81, 0.1);
+        border-left: 4px solid #f8fafc;
+    }
+    
+    .contact-note p {
+        color: #f8fafc;
+    }
+}
+
 /* Background Pattern - Removed for solid color */
 .background-pattern {
     display: none;
