@@ -847,7 +847,8 @@ body.light-mode .moon-icon {
 
 /* Modal Light Mode Styles */
 body.light-mode .modal-overlay {
-    background: rgba(0, 0, 0, 0.7);
+    /* Match light mode background (#f8fafc) with opacity for seamless safe area blending */
+    background: rgba(248, 250, 252, 0.85);
 }
 
 body.light-mode .modal-close {
@@ -1248,7 +1249,8 @@ body.light-mode .contact-note p {
     position: fixed;
     /* Simple approach - fills entire viewport including safe areas */
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    /* Match dark mode background (#1a1a1a) with opacity for seamless safe area blending */
+    background: rgba(26, 26, 26, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); /* Safari support */
     opacity: 0;
