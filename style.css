@@ -648,6 +648,10 @@ body {
     transform: translateX(3px);
 }
 
+.contact-method:hover .card-arrow {
+    transform: translateX(3px);
+}
+
 /* Regular Link Styles */
 .link-icon {
     width: 22px;
@@ -1116,12 +1120,20 @@ body.light-mode .highlight-text {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
+body.light-mode .highlight-subtitle {
+    color: rgba(26, 26, 26, 0.8);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+body.light-mode .highlight-description {
+    color: rgba(26, 26, 26, 0.6);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
 body.light-mode .value-item {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .value-item::before {
@@ -1129,11 +1141,9 @@ body.light-mode .value-item::before {
 }
 
 body.light-mode .value-item:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 body.light-mode .value-item h3 {
@@ -1707,6 +1717,7 @@ body.light-mode .contact-note p {
     margin: 0 auto;
     flex: 1 1 auto;
     min-height: 0;
+    padding-bottom: 3rem;
 }
 
 .modal-body p {
@@ -1720,7 +1731,7 @@ body.light-mode .contact-note p {
 .modal-highlights {
     display: grid;
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin: 1.5rem 0;
 }
 
 .highlight-item {
@@ -1773,26 +1784,45 @@ body.light-mode .contact-note p {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.highlight-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.highlight-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 /* Mission Modal Styles */
 .mission-values {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .value-item {
     padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .value-item::before {
@@ -1806,12 +1836,14 @@ body.light-mode .contact-note p {
 }
 
 .value-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
-    box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.value-item:last-child {
+    margin-bottom: 0;
 }
 
 .value-item h3 {
@@ -2053,6 +2085,7 @@ body.light-mode .contact-note p {
     
     .modal-body {
         max-width: 700px;
+        padding-bottom: 3rem;
     }
     
     .modal-highlights {
@@ -2136,5 +2169,6 @@ body.light-mode .contact-note p {
         flex: 1 1 auto;
         min-height: 0;
         overflow: visible;
+        padding-bottom: 3rem;
     }
 } 
