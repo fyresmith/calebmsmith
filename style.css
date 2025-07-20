@@ -638,14 +638,23 @@ body {
 }
 
 .card-arrow {
-    font-size: 1.25rem;
-    color: #ffffff;
-    font-weight: 600;
-    transition: transform 0.3s ease;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    transition: transform 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    opacity: 0.8;
 }
 
 .link-item.image-card:hover .card-arrow {
-    transform: translateX(3px);
+    transform: translateX(4px);
+}
+
+.contact-method:hover .card-arrow {
+    transform: translateX(4px);
+    color: rgba(255, 255, 255, 1);
+    opacity: 1;
 }
 
 /* Regular Link Styles */
@@ -1092,11 +1101,12 @@ body.light-mode .modal-body p {
 }
 
 body.light-mode .highlight-item {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 4px solid rgba(0, 0, 0, 0.2);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 body.light-mode .highlight-item::before {
@@ -1104,10 +1114,10 @@ body.light-mode .highlight-item::before {
 }
 
 body.light-mode .highlight-item:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.15);
     box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.15),
+        0 8px 24px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -1116,12 +1126,30 @@ body.light-mode .highlight-text {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
+body.light-mode .highlight-subtitle {
+    color: rgba(26, 26, 26, 0.8);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+body.light-mode .highlight-description {
+    color: rgba(26, 26, 26, 0.6);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+body.light-mode .card-arrow {
+    color: rgba(26, 26, 26, 0.6);
+    opacity: 0.7;
+}
+
+body.light-mode .contact-method:hover .card-arrow {
+    color: rgba(26, 26, 26, 0.8);
+    opacity: 1;
+}
+
 body.light-mode .value-item {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .value-item::before {
@@ -1129,11 +1157,9 @@ body.light-mode .value-item::before {
 }
 
 body.light-mode .value-item:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 body.light-mode .value-item h3 {
@@ -1144,15 +1170,14 @@ body.light-mode .value-item h3 {
 body.light-mode .value-item p {
     color: #2a2a2a;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    margin: 0 0 1.2rem 0;
 }
 
 body.light-mode .contact-method {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.1);
     color: #1a1a1a;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .contact-method::before {
@@ -1160,12 +1185,10 @@ body.light-mode .contact-method::before {
 }
 
 body.light-mode .contact-method:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.15);
     color: #1a1a1a;
-    box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 body.light-mode .contact-icon {
@@ -1662,10 +1685,10 @@ body.light-mode .contact-note p {
 }
 
 .modal-content {
-    padding: 6rem 2rem 4rem;
+    padding: 6rem 2rem 6rem;
     /* Add safe area padding to prevent content from being cut off */
     padding-top: calc(6rem + env(safe-area-inset-top, 0px));
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
     padding-left: calc(2rem + env(safe-area-inset-left, 0px));
     padding-right: calc(2rem + env(safe-area-inset-right, 0px));
     min-height: 100%;
@@ -1707,6 +1730,7 @@ body.light-mode .contact-note p {
     margin: 0 auto;
     flex: 1 1 auto;
     min-height: 0;
+    padding-bottom: 3rem;
 }
 
 .modal-body p {
@@ -1720,19 +1744,18 @@ body.light-mode .contact-note p {
 .modal-highlights {
     display: grid;
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin: 1.5rem 0;
 }
 
 .highlight-item {
     display: flex;
     align-items: center;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 
@@ -1751,11 +1774,11 @@ body.light-mode .contact-note p {
 }
 
 .highlight-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -1773,26 +1796,45 @@ body.light-mode .contact-note p {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.highlight-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.highlight-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 /* Mission Modal Styles */
 .mission-values {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .value-item {
     padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .value-item::before {
@@ -1806,12 +1848,14 @@ body.light-mode .contact-note p {
 }
 
 .value-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
-    box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.value-item:last-child {
+    margin-bottom: 0;
 }
 
 .value-item h3 {
@@ -1829,7 +1873,7 @@ body.light-mode .contact-note p {
     font-size: 1.125rem;
     color: #e2e8f0;
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 1.2rem 0;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -1843,20 +1887,23 @@ body.light-mode .contact-note p {
 .contact-method {
     display: flex;
     align-items: center;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border-radius: 16px;
     text-decoration: none;
     color: #ffffff;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Fix layout for Contact modal (with icons) */
+#modal-contact .contact-method {
+    justify-content: flex-start;
+    gap: 1.5rem;
 }
 
 .contact-method::before {
@@ -1870,13 +1917,11 @@ body.light-mode .contact-note p {
 }
 
 .contact-method:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     color: #ffffff;
-    box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .contact-icon {
@@ -1961,10 +2006,10 @@ body.light-mode .contact-note p {
 /* Responsive Design for Modals */
 @media (max-width: 640px) {
     .modal-content {
-        padding: 5rem 1.5rem 4rem;
+        padding: 5rem 1.5rem 6rem;
         /* Add safe area padding for mobile */
         padding-top: calc(5rem + env(safe-area-inset-top, 0px));
-        padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+        padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
         padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
         padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
     }
@@ -2005,10 +2050,10 @@ body.light-mode .contact-note p {
 
 @media (max-width: 480px) {
     .modal-content {
-        padding: 4rem 1rem 4rem;
+        padding: 4rem 1rem 6rem;
         /* Add safe area padding for small mobile */
         padding-top: calc(4rem + env(safe-area-inset-top, 0px));
-        padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+        padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
         padding-left: calc(1rem + env(safe-area-inset-left, 0px));
         padding-right: calc(1rem + env(safe-area-inset-right, 0px));
     }
@@ -2053,6 +2098,7 @@ body.light-mode .contact-note p {
     
     .modal-body {
         max-width: 700px;
+        padding-bottom: 3rem;
     }
     
     .modal-highlights {
@@ -2136,5 +2182,6 @@ body.light-mode .contact-note p {
         flex: 1 1 auto;
         min-height: 0;
         overflow: visible;
+        padding-bottom: 3rem;
     }
 } 

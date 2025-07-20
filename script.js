@@ -37,9 +37,9 @@
                 const avatar = document.querySelector('.avatar');
                 if (avatar) {
                     if (theme === 'light') {
-                        avatar.src = 'pfp2.webp';
+                        avatar.src = 'pfp-main.webp';
                     } else {
-                        avatar.src = 'pfp2-dark.jpg';
+                        avatar.src = 'pfp-main-dark.jpg';
                     }
                 }
             };
@@ -1121,9 +1121,9 @@
             const avatar = document.querySelector('.avatar');
             if (avatar) {
                 if (theme === 'light') {
-                    avatar.src = 'pfp2.webp';
+                    avatar.src = 'pfp-main.webp';
                 } else {
-                    avatar.src = 'pfp2-dark.jpg';
+                    avatar.src = 'pfp-main-dark.jpg';
                 }
             }
             

@@ -9,24 +9,21 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="pfp2-dark.jpg" as="image">
-    <link rel="preload" href="pfp2.webp" as="image">
-    <link rel="preload" href="pfp.jpg" as="image">
-    <link rel="preload" href="pfp-dark.jpg" as="image">
-    <link rel="preload" href="pfp-poster.jpg" as="image">
+    <link rel="preload" href="pfp-main-dark.jpg" as="image">
+    <link rel="preload" href="pfp-main.webp" as="image">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.png">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://calebmsmith.github.io/linktree/">
+    <meta property="og:url" content="https://calebmsmith.com">
     <meta property="og:title" content="Caleb Smith | Faith-first writer, thinker, and builder.">
     <meta property="og:description" content="Connect with me across all platforms">
-    <meta property="og:image" content="https://calebmsmith.github.io/linktree/pfp.jpg">
+    <meta property="og:image" content="portfolio.calebmsmith.com">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -40,7 +37,7 @@
     <div class="container">
         <header class="profile">
             <div class="profile-image">
-                <img class="avatar" src="pfp2-dark.jpg" alt="Caleb Smith" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <img class="avatar" src="pfp-main-dark.jpg" alt="Caleb Smith" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="avatar-fallback">CS</div>
             </div>
             <h1 class="profile-name">Caleb Smith</h1>
@@ -48,13 +45,13 @@
         </header>
 
         <section class="social-icons">
-            <a href="https://linkedin.com/in/calebmsmith" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/smith-caleb" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
             </a>
 
-            <a href="https://x.com/calebmsmith" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <a href="https://x.com/calebmsmith_" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
@@ -66,11 +63,41 @@
                 </svg>
             </a>
 
-            <a href="https://github.com/calebmsmith" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/fyresmith" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
                 </svg>
             </a>
+
+            <!-- <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a> -->
+
+            <!-- <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Rumble">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.29 13.067l4.51-2.534a.8.8 0 0 0 0-1.422L13.29 6.577a.8.8 0 0 0-1.2.711v5.068a.8.8 0 0 0 1.2.711zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-4.441-2.5a1.76 1.76 0 0 0-1.063-1.6L11.108 3.4a1.76 1.76 0 0 0-2.644 1.525v13.65a1.76 1.76 0 0 0 2.644 1.525l7.388-4.5a1.76 1.76 0 0 0 1.063-1.6z"/>
+                </svg>
+            </a> -->
+
+            <!-- <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a> -->
         </section>
 
         <main class="links">
@@ -187,25 +214,105 @@
                     <h2>About Me</h2>
                 </div>
                 <div class="modal-body">
-                    <p>Hi, I'm Caleb! I'm a passionate student, writer, and developer with a deep curiosity about technology, philosophy, and the intersection of human creativity and digital innovation.</p>
+                    <p>My name is Caleb Smith, and the first thing you should know about me is that I am a Christian, a follower of Jesus Christ. I believe in Jesus Christ, crucified and risen, not as a vague symbol of hope, but as the living Son of God. This faith shapes how I see everything: the code I write, the stories I tell, the questions I ask, and the problems I try to solve. I believe truth exists and can be known, that beauty matters as much as function, and that our work should serve something larger than ourselves.</p>
                     
-                    <p>Currently pursuing my studies while building meaningful projects and sharing my thoughts through writing. I believe in the power of technology to solve real problems and create positive impact in our communities.</p>
-                    
-                    <p>When I'm not coding or writing, you can find me exploring new ideas, reading about emerging technologies, or engaging in thoughtful conversations about the future we're building together.</p>
+                    <p>Beyond that, I am the eldest of four siblings, an avid reader, and a reflective writer. I love stories of all kinds, shared through many different mediums. Professionally, I work as a software developer. In my free time, I dedicate time to building personal creative and technical projects with the long-term goal of turning them into the foundations of future ventures.</p>
                     
                     <div class="modal-highlights">
                         <div class="highlight-item">
-                            <span class="highlight-icon">🎓</span>
-                            <span class="highlight-text">Lifelong learner passionate about growth</span>
+                            <div class="highlight-content">
+                                <span class="highlight-text">What I Do</span>
+                                <span class="highlight-description">Building systems, crafting stories, wrestling with ideas</span>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <p>I'm studying computer engineering at Kennesaw State University, but I've always been more interested in how things fit together than just how they function. Whether I'm debugging code, architecting a system, or designing a user interface, I'm drawn to the deeper questions: How do the pieces relate? What makes something elegant rather than just functional? How can technology serve human flourishing?</p>
+                    
+                    <p>Programming taught me to think systematically, but it also revealed something beautiful about creation itself: the way complex, meaningful systems can emerge from simple, well-ordered principles. I see this same pattern everywhere: in language, in stories, in the way ideas connect and cultures form.</p>
+                    
+                    <p>I write articles through my substack: "The Solitary Post," where I explore the intersection of faith, culture, and politics. I write to make sense of things: to ask better questions, press deeper into what's true, and offer readers something solid to stand on in a world that often feels unmoored.</p>
+                    
+                    <p>Beyond nonfiction, I've always been drawn to storytelling. I grew up on epic fantasy and science fiction. I loved the stories that weren't afraid to ask big questions about good and evil, hope and despair, what it means to be human. Authors like Tolkien and Lewis showed me that fiction could be both beautiful and true, that stories could change how we see the world.</p>
+                    
+                    <div class="modal-highlights">
                         <div class="highlight-item">
-                            <span class="highlight-icon">✍️</span>
-                            <span class="highlight-text">Writer sharing insights and experiences</span>
+                            <div class="highlight-content">
+                                <span class="highlight-text">What I'm Building</span>
+                                <span class="highlight-description">Stories that last, ideas that clarify, tools that serve</span>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <p>I'm currently working on my first novel, an epic fantasy that explores themes of sacrifice, redemption, and the cost of power. It's the kind of story I've always wanted to read, a modern epic fantasy with all the bells and whistles of the genre (and also some exciting innovations) that also takes seriously both the darkness in the world and the possibility of light overcoming it.</p>
+                    
+                    <p>In my technical work, I'm developing several open-source projects focused on helping writers and content creators. I believe the tools we use shape the work we produce, and I want to build software that encourages thoughtful, deliberate creation rather than just rapid consumption.</p>
+                    
+                    <p>All of this is connected by a simple belief: we're living through a time of real confusion about truth, meaning, and identity. I want my work, whether it's a story, an essay, or a piece of software, to help cut through that fog. Not by providing easy answers, but by asking better questions and building things that help people think more clearly and live more fully.</p>
+                    
+                    <p>I care about craftsmanship. I care about the truth. I care about building what lasts. In a culture obsessed with speed and scale, I'm more interested in depth and durability. I'd rather write one essay that changes how someone thinks than ten that just confirms what they already believe.</p>
+                    
+                    <div class="modal-highlights">
                         <div class="highlight-item">
-                            <span class="highlight-icon">💻</span>
-                            <span class="highlight-text">Developer creating meaningful solutions</span>
+                            <div class="highlight-content">
+                                <span class="highlight-text">Beyond the Work</span>
+                                <span class="highlight-description">Life, influences, and what shapes my thinking</span>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <p>When I'm not writing or coding, you'll find me reading (everything from theology and philosophy to science fiction and poetry). I'm particularly drawn to writers who can handle both beauty and complexity.</p>
+                    
+                    <p>I love cream soda, pizza, long walks, and conversations that stretch late into the night. I love video games, and I'm fascinated by chess (although I doubt I'll ever be too great with such a complex game). I believe there's something sacred about craftsmanship in any domain, whether it's writing code, building furniture, or preparing a meal.</p>
+                    
+                    <p>I'm also deeply interested in the intersection of faith and creativity. How does belief shape the stories we tell? What does it mean to create as someone made in the image of a Creator? These aren't just academic questions for me, but instead central to how I approach my work.</p>
+                    
+                    <div class="modal-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-content">
+                                <span class="highlight-text">Let's Connect</span>
+                                <span class="highlight-description">Read, explore, reach out</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>If you've made it this far, thank you. I'd love to hear from you. Whether you want to discuss an essay, share a project you're working on, or just say hello, I'm always glad to connect with fellow builders, thinkers, and dreamers.</p>
+                    
+                    <div class="contact-methods">
+                        <a href="https://solitarypost.substack.com" class="contact-method" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-details">
+                                <span class="contact-title">Read my work</span>
+                                <span class="contact-subtitle">Start with The Solitary Post to get a sense of how I think about culture and faith</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
+                        
+                        <a href="https://x.com/calebmsmith_" class="contact-method" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-details">
+                                <span class="contact-title">Follow along</span>
+                                <span class="contact-subtitle">I share updates on current projects and interesting discoveries</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
+                        
+                        <a href="mailto:me@calebmsmith.com" class="contact-method">
+                            <div class="contact-details">
+                                <span class="contact-title">Reach out</span>
+                                <span class="contact-subtitle">Email me at me@calebmsmith.com or find me on X</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
+                    </div>
+                    
+                    <p>I'm building toward something, a body of work that matters, stories that endure, tools that serve. It's a long project, probably a lifetime's worth. But I believe it's worth doing, and I believe it's worth doing well.</p>
+                    
+                    <p>Maybe you're building toward something too. If so, I'd be honored to be part of that journey, even in some small way.</p>
+                    
+                    <div class="quote-section">
+                        <p class="quote-text">"In a hole in the ground there lived a hobbit."</p>
+                        <p class="quote-author">— J.R.R. Tolkien</p>
+                        <p class="quote-text" style="margin-top: 1rem; margin-bottom: 10rem; font-size: 0.95em; opacity: 0.8;">Sometimes the most important journeys begin with the simplest words.</p>
+                        <p class="quote-text" style="margin-top: 3rem; font-size: 0.95em; opacity: 0.000001;">Copyright 2025 Caleb Smith</p>
                     </div>
                 </div>
             </div>
@@ -223,31 +330,55 @@
                     <h2>My Mission</h2>
                 </div>
                 <div class="modal-body">
-                    <p>My mission is to bridge the gap between technology and human understanding, creating digital experiences that are both powerful and accessible.</p>
+                    <p>My mission is to proclaim Christ and advance the Kingdom of God in every sphere of American life by exercising strong political, cultural, and entrepreneurial leadership to shape society according to biblical truth; by pursuing ventures that steward influence and resources to enable and sustain principled leadership and cultural engagement; and by discipling others to faithfully lead and influence their own worlds for Christ.</p>
                     
-                    <p>I believe in:</p>
+                    <p>This isn't just a personal goal. It's a calling I feel deeply. Christ is Lord over all of life, and I believe following Him means engaging the world with clarity, courage, and a long view. That kind of faithfulness takes more than conviction. It requires institutions, imagination, leadership, and strategy.</p>
+                    
+                    <p>To live this out, I've identified five guiding goals for my early career and beyond.</p>
                     
                     <div class="mission-values">
                         <div class="value-item">
-                            <h3>🌟 Meaningful Innovation</h3>
-                            <p>Technology should solve real problems and improve lives, not just exist for its own sake.</p>
+                            <h3>1. Serve and Strengthen the Church</h3>
+                            <p>Everything begins here. The Church is the foundation of truth in the world, and my first responsibility is to help strengthen it.</p>
+                            <p>I want to disciple young men who can lead with humility, strength, and faith in whatever space God places them. I plan to write and publish resources that help churches navigate the public square with wisdom, not fear. I also hope to help lead or support at least one church that is known for clear doctrine, visible faith, and whole-life discipleship.</p>
+                            <p>If we want to renew culture, we have to begin by building a Church that is healthy, grounded, and unafraid to speak.</p>
                         </div>
                         
                         <div class="value-item">
-                            <h3>🤝 Inclusive Design</h3>
-                            <p>Building solutions that are accessible to everyone, regardless of their technical background.</p>
+                            <h3>2. Build Principled Businesses</h3>
+                            <p>I believe business is one of the most powerful tools for cultural engagement. It tests your convictions in the real world.</p>
+                            <p>I plan to build ventures that model integrity and excellence, not just to succeed, but to show what Christian leadership can look like in action. These won't just be businesses that make money. They will be platforms for public witness, community development, and cultural renewal. I want to create things that last and point to deeper truths by the way they are built and the way they operate.</p>
+                            <p>If we want to show the world that Christian principles work, we need to prove it where it matters most.</p>
                         </div>
                         
                         <div class="value-item">
-                            <h3>📚 Continuous Learning</h3>
-                            <p>Staying curious and adapting to the ever-evolving landscape of technology and human needs.</p>
+                            <h3>3. Engage in Politics with Purpose</h3>
+                            <p>Politics is not where salvation comes from, but it is one of the places where obedience is tested.</p>
+                            <p>I plan to be involved in political life over the long haul. That means starting local and working outward, running for office, supporting candidates I believe in, and helping shape policy rooted in biblical truth. I believe it is possible to work within our current systems while helping build something stronger and more just.</p>
+                            <p>Public life is in desperate need of leaders who are principled, grounded, and unwilling to sell their convictions for short-term gain. I want to be part of that answer.</p>
                         </div>
                         
                         <div class="value-item">
-                            <h3>🎯 Purpose-Driven Work</h3>
-                            <p>Every project should contribute to a better, more connected, and understanding world.</p>
+                            <h3>4. Invest in Cultural Institutions</h3>
+                            <p>Culture is shaped by the stories we tell and the institutions that carry them.</p>
+                            <p>Through media, publishing, and education, I want to elevate creators and leaders who speak the truth with clarity and beauty. I believe we need more institutions that care about excellence and moral imagination, not just efficiency or outrage. I hope to help build or support organizations that shape what people believe, what they love, and how they live.</p>
+                            <p>Cultural transformation doesn't start with politics. It starts with the imagination. And the imagination is formed through art, education, and the stories we pass on.</p>
+                        </div>
+                        
+                        <div class="value-item">
+                            <h3>5. Multiply the Mission</h3>
+                            <p>I am not trying to do this alone.</p>
+                            <p>Over the next ten years, I want to mentor and work alongside at least ten young men who share this vision. I hope to eventually launch a fellowship or collaborative network where principled leaders can work across spheres to build something larger than themselves. This kind of mission spreads through relationships. And I want to be intentional about that from the start.</p>
+                            <p>Leadership multiplies best when it is rooted in shared conviction and lived out shoulder to shoulder.</p>
                         </div>
                     </div>
+                    
+                    <p>Together, these goals form a practical, long-term strategy. I want to build. I want to disciple. I want to lead in ways that renew culture, strengthen the Church, and point every space I touch back to Christ.</p>
+                    
+                    <p>This will take time. It will require patience and faith and a willingness to build things that don't always show results right away. But I believe it is worth it. And I believe it is possible.</p>
+                    
+                    <p>This is the road I'm walking. If you're building toward something similar, I'd be honored to walk a stretch of that road with you.</p>
+                    <p class="quote-text" style="margin-top: 3rem; font-size: 0.95em; opacity: 0.000001;">Copyright 2025 Caleb Smith</p>
                 </div>
             </div>
         </div>
@@ -267,7 +398,7 @@
                     <p>I'm always excited to connect with like-minded individuals, discuss new ideas, and explore potential collaborations.</p>
                     
                     <div class="contact-methods">
-                        <a href="mailto:hello@calebmsmith.com" class="contact-method">
+                        <a href="mailto:me@calebmsmith.com" class="contact-method">
                             <span class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -275,11 +406,11 @@
                             </span>
                             <div class="contact-details">
                                 <span class="contact-title">Email</span>
-                                <span class="contact-subtitle">hello@calebmsmith.com</span>
+                                <span class="contact-subtitle">me@calebmsmith.com</span>
                             </div>
                         </a>
                         
-                        <a href="https://linkedin.com/in/calebmsmith" class="contact-method" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/in/smith-caleb" class="contact-method" target="_blank" rel="noopener noreferrer">
                             <span class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -291,7 +422,7 @@
                             </div>
                         </a>
                         
-                        <a href="https://x.com/calebmsmith" class="contact-method" target="_blank" rel="noopener noreferrer">
+                        <a href="https://x.com/calebmsmith_" class="contact-method" target="_blank" rel="noopener noreferrer">
                             <span class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
