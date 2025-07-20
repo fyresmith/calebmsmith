@@ -1101,11 +1101,12 @@ body.light-mode .modal-body p {
 }
 
 body.light-mode .highlight-item {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 4px solid rgba(0, 0, 0, 0.2);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 body.light-mode .highlight-item::before {
@@ -1113,10 +1114,10 @@ body.light-mode .highlight-item::before {
 }
 
 body.light-mode .highlight-item:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.15);
     box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.15),
+        0 8px 24px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -1169,6 +1170,7 @@ body.light-mode .value-item h3 {
 body.light-mode .value-item p {
     color: #2a2a2a;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+    margin: 0 0 1.2rem 0;
 }
 
 body.light-mode .contact-method {
@@ -1749,12 +1751,11 @@ body.light-mode .contact-note p {
     display: flex;
     align-items: center;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
     box-shadow: 
@@ -1773,11 +1774,11 @@ body.light-mode .contact-note p {
 }
 
 .highlight-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 
-        0 16px 64px rgba(0, 0, 0, 0.4),
+        0 8px 24px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -1872,7 +1873,7 @@ body.light-mode .contact-note p {
     font-size: 1.125rem;
     color: #e2e8f0;
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 1.2rem 0;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
